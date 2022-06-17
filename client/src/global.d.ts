@@ -1,10 +1,13 @@
-import { alasql as alasqlType } from 'alasql'
-import { Alpine as AlpineType } from 'alpinejs'
-import { LiteYTEmbed } from 'lite-youtube-embed'
+import { Alpine } from 'alpinejs';
+import { Dexie } from 'dexie';
+import { app } from './main';
+
+interface IDictionary<TValue> {
+  [id: string]: TValue;
+}
 
 declare global {
-  var Alpine: AlpineType
-  var alasql: alasqlType
-  var app: Any
-  var LiteYTEmbed: LiteYTEmbed
+  var Alpine: Alpine
+  var dbs: IDictionary<Dexie>
+  var app: app
 }

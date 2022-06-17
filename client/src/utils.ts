@@ -31,6 +31,14 @@ export function secondsToFriendlyTime(seconds: number) {
 
     return display.join(', ');
 }
+export function downloadBlob(blob: Blob, filename: string) {
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", URL.createObjectURL(blob));
+    downloadAnchorNode.setAttribute("download", filename);
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
 export function downloadObjectAsJson(exportObj: object, exportName: string) {
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
     var downloadAnchorNode = document.createElement('a');
@@ -41,6 +49,7 @@ export function downloadObjectAsJson(exportObj: object, exportName: string) {
     downloadAnchorNode.remove();
 }
 export async function fileToJSON(event: Event): Promise<object> {
+    // let data = await fileToJSON(event)
     const file = event.target.files[0]
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader()

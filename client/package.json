@@ -13,8 +13,9 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "alasql": "^1.7.2",
     "alpinejs": "^3.10.2",
+    "dexie": "^3.2.2",
+    "dexie-export-import": "^1.0.3",
     "lite-youtube-embed": "^0.2.0",
     "material-icons": "^1.11.1"
   }

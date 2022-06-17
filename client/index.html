@@ -254,22 +254,13 @@ chapmanjacobd @/t gmail
        </div>
 
        <div class="advSettings">
-        <button type="button" @click="app.deleteDB()" x-text="`Delete ${alasql.databases.dbo.databaseid} 💣`"></button>
+        <button type="button" @click="app.deleteDB()">Delete database 💣</button>
        </div>
-       <!--
-       <div id="dbSelector" x-data>
-        <label for="switchDBInput">Switch DB</label>
-        <select id="switchDBInput" x-model="$store.sett.selectedDB" x-on:change="app.switchDB($store.sett.selectedDB)">
-         <template x-for="db in Object.keys(alasql.databases).filter(x=>!['dbo','alasql'].includes(x))">
-          <option x-text="db"></option>
-         </template>
-        </select>
-       </div> -->
 
-       <!-- <div id="importDBInput">
-        <label for="importDBFile">Import DB (this might not actually work so be careful)</label>
+       <div id="importDBInput">
+        <label for="importDBFile">Import DB</label>
         <input id="importDBFile" type="file" onchange="app.importDB(event)" />
-       </div> -->
+       </div>
 
       </div>
      </div>
@@ -281,10 +272,8 @@ chapmanjacobd @/t gmail
       </div>
 
       <div class="advSettings">
-       <button type="button" @click="alasql('delete from playlists;delete from entries;');app.refreshView()">⚠️
-        Delete
-        All
-        Playlists/Videos</button>
+       <button type="button" @click="app.markAllVideosWatched();app.refreshView()">⚠️
+        Mark All Videos as Watched</button>
       </div>
 
      </details>
